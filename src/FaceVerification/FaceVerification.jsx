@@ -66,9 +66,13 @@ const FaceVerification = ({ setCapturedImage }) => {
 		// Визначаємо правильну позицію
 		// const isCenteredX = Math.abs(faceCenterX - centerX) < displayWidth * 0.1;
 		// const isCenteredY = Math.abs(faceCenterY - centerY) < displayHeight * 0.1;
-		const isCenteredX = faceCenterX * (displayWidth / videoWidth) < centerX + displayWidth / 30 && faceCenterX * (displayWidth / videoWidth) > centerX - displayWidth / 30
-		const isCenteredY = faceCenterY * (displayHeight / videoHeight) < centerY + displayHeight / 25 && faceCenterY * (displayHeight / videoHeight) > centerY - displayHeight / 25
-		const isProperSize = width > displayWidth * 0.5 && width < displayWidth * 0.65;
+
+
+		const isCenteredX = faceCenterX * (displayWidth / videoWidth) < centerX + displayWidth / 25 && faceCenterX * (displayWidth / videoWidth) > centerX - displayWidth / 25
+		const isCenteredY = faceCenterY * (displayHeight / videoHeight) < centerY + displayHeight / 20 && faceCenterY * (displayHeight / videoHeight) > centerY - displayHeight / 20
+
+
+		const isProperSize = width > displayWidth * 0.45 && width < displayWidth * 0.7;
 
 		return isCenteredX && isCenteredY && isProperSize;
 	}, []);
