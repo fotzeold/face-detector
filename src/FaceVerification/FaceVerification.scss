@@ -1,0 +1,59 @@
+.face-verification {
+  .face-verification__camera-container {
+    position: relative;
+    width: 100%;
+  }
+
+  .face-verification__mask {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 18rem;
+    height: 24rem;
+    border-width: 4px;
+    border-style: solid;
+    border-radius: 50%;
+    pointer-events: none;
+    transition: border-color 0.3s ease;
+  }
+
+  .face-verification__mask_state_incorrect {
+    border-color: #ef4444;
+  }
+
+  .face-verification__mask_state_correct {
+    border-color: #22c55e;
+  }
+
+  .face-verification__message-container {
+    position: fixed;
+    bottom: 20px;
+    text-align: center;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.4);
+  }
+
+  .face-verification__message {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: white;
+    text-align: center;
+  }
+
+  .face-verification__capture-result {
+    margin-top: 1rem;
+  }
+
+  .face-verification__capture-title {
+    font-size: 1.125rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+  }
+
+  .face-verification__captured-image {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+}
