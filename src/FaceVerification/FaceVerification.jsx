@@ -77,8 +77,6 @@ const FaceVerification = ({ setCapturedImage }) => {
 		return isCenteredX && isCenteredY && isProperSize;
 	}, []);
 
-
-
 	const checkSidePosition = useCallback(
 		(detection) => {
 			if (!webcamRef.current) return false;
@@ -87,7 +85,7 @@ const FaceVerification = ({ setCapturedImage }) => {
 			const faceCenterX = x + width / 2;
 			const { videoWidth } = videoEl;
 			const centerX = videoWidth / 2;
-			const tolerance = 50;
+			const tolerance = 40;
 
 			console.log(`STEP ${step}`, `FaceCenterX: ${faceCenterX}`, `CenterX: ${centerX}`);
 
@@ -127,9 +125,10 @@ const FaceVerification = ({ setCapturedImage }) => {
 					setStep(3);
 				} else if (step === 3 && isCorrectPosition) {
 					setMessage("Фото сделано!");
-					setTimeout(capture, 500);
+					setTimeout(capture, 1500);
 				}
 			} else {
+				setStep(0)
 				setIsInPosition(false);
 				setMessage("Лицо не обнаружено");
 			}
@@ -140,7 +139,7 @@ const FaceVerification = ({ setCapturedImage }) => {
 
 	useEffect(() => {
 		if (isModelLoaded) {
-			const intervalId = setInterval(runDetection, 1000);
+			const intervalId = setInterval(runDetection, 500);
 			return () => clearInterval(intervalId);
 		}
 	}, [isModelLoaded, runDetection]);
